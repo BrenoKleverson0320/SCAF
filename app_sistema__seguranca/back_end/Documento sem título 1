@@ -1,0 +1,16 @@
+sudo apt-get update
+sudo apt-get install python3
+sudo apt-get install python3-pip
+sudo apt-get update
+sudo apt-get install python3-opencv
+pip3 install face_recognition
+pip3 install screeninfo
+pip3 install screeninfo
+sudo apt-get install cmake
+sudo apt-get install libboost-all-dev
+pip3 install dlib
+pip3 install pyserial
+pip3 install numpy
+pip install pyngrok
+pip install channels
+
