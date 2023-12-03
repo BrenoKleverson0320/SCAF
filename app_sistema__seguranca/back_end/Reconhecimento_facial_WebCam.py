@@ -109,7 +109,7 @@ def webcam(request):
                 text_x = left + (right - left - text_width) // 2
                 text_y = bottom + 30
 
-                if "Estudante" in name:
+                if "Aluno" in name:
                     border_color = (255, 0, 0)
                     consecutive_recognitions += 1
                     if consecutive_recognitions >= min_recognitions_threshold:
