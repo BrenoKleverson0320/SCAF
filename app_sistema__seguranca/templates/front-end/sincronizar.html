@@ -1,0 +1,149 @@
+{% comment %} <!DOCTYPE html>
+<html>
+<head>
+    <title>Sincronizando...</title>
+    <style>
+        /* Estilos para centralizar o conteúdo */
+        html, body {
+            height: 100%;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Estilos para o círculo de carregamento */
+        .loader-container {
+            text-align: center;
+        }
+
+        .loader {
+            border: 16px solid #b4cbfa;
+            border-top: 16px solid #4e73df;
+            border-radius: 50%;
+            width: 240px;
+            height: 240px;
+            animation: spin 2s linear infinite;
+            margin-bottom: 20px;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Estilos para o texto "Sincronizando..." */
+        .sync-text {
+            font-size: 30px;
+            text-align: center;
+            animation: blink 1s infinite;
+        }
+
+        @keyframes blink {
+            0% { opacity: 1; }
+            50% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+    <div class="loader-container">
+        <div class="loader"></div>
+        <div class="sync-text">Sincronizando</div>
+    </div>
+
+
+
+    <script>
+        // Redirecionamento para a URL do Django após um período de tempo
+        setTimeout(function() {
+            window.location.href = {% url 'sincronizacao' %}; // Redireciona para a URL do Django
+        }, 100); // 5000 milissegundos = 5 segundos (altere o tempo conforme necessário)
+    
+    </script>
+
+    
+
+</body>
+</html> {% endcomment %}
+
+
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sincronizando...</title>
+    <link rel="shortcut icon" href="{% static 'img/SCAF_azul.png' %}">
+    <style>
+        /* Estilos para centralizar o conteúdo */
+        html, body {
+            height: 100%;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Estilos para o círculo de carregamento */
+        .loader-container {
+            text-align: center;
+        }
+
+        .loader {
+            border: 16px solid #b4cbfa;
+            border-top: 16px solid #4e73df;
+            border-radius: 50%;
+            width: 240px;
+            height: 240px;
+            animation: spin 2s linear infinite;
+            margin-bottom: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .loader::before {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-image: url('{% static 'img/SCAF_4.svg' %}'); /* Substitua 'link_para_sua_imagem.png' pelo caminho da sua imagem */
+            background-size: cover;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Estilos para o texto "Sincronizando..." */
+        .sync-text {
+            font-size: 30px;
+            text-align: center;
+            animation: blink 1s infinite;
+        }
+
+        @keyframes blink {
+            0% { opacity: 1; }
+            50% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+    <div class="loader-container">
+        <div class="loader"></div>
+        <div class="sync-text">Sincronizando</div>
+    </div>
+
+    <script>
+        // Redirecionamento para a URL do Django após um período de tempo
+        setTimeout(function() {
+            window.location.href = "{% url 'sincronizacao' %}"; // Redireciona para a URL do Django
+        }, 5000); // 5000 milissegundos = 5 segundos (altere o tempo conforme necessário)
+    </script>
+</body>
+</html>

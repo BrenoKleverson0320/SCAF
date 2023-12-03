@@ -1,0 +1,258 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Cadastros</title>
+    <link rel="shortcut icon" href="{% static 'img/SCAF_azul.png' %}">
+
+    <!-- Fontes personalizadas para este modelo -->
+    <link href="{% static 'vendor/fontawesome-free/css/all.min.css' %}" rel="stylesheet" type="text/css">
+    <link
+        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet">
+
+    <!-- Estilos personalizados para este modelo -->
+    <link href="{% static 'css/block.css' %}" rel="stylesheet">
+
+
+</head>
+
+<body class="bg-gradient-primary">
+
+    <div class="container">
+
+        <div class="card o-hidden border-0 shadow-lg my-5">
+            <div class="card-body p-0">
+                <!-- Linhas Aninhadas no Interior do Corpo do Cartão -->
+                <div class="row">
+                    
+                    <div class="col-lg-5 d-none d-lg-block">
+
+                        <img src="{% static 'img/bloqueado.jpg' %}" width="500" height="500";>
+                    </div>
+                    {% comment %} <div class="col-lg-5 d-none d-lg-block bg-register-image"></div> {% endcomment %}
+                    <div class="col-lg-7">
+                        <div class="p-5">
+
+                            <!-- Begin Page Content -->
+<div class="container-fluid">
+
+    <!-- Page Heading -->
+    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+        <h1 class="h3 mb-0 text-gray-800"></h1>
+        
+        
+        <a href="{% url 'sincronizar' %}" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
+            
+            class="fas fa-sync-alt fa-sm text-white-50"></i> Sincronizar</a>
+            {% csrf_token %} 
+    </div>
+
+
+</div>
+                            <div class="text-center">
+                                <h1 class="h4 text-gray-900 mb-4">Bloquear Pessoa!</h1>
+                            </div>
+                            <form method="post" enctype="multipart/form-data" class="user" action="{% url 'bloquear' %}">
+                                {% csrf_token %}
+                                
+                                <div class="form-group">
+                                    
+                                <input type="text" name="nome" class="form-control form-control-user" id="Nome"
+                                        placeholder="Nome">
+                                    
+                                </div>
+                                <div class="form-group">
+                                    <input type="email" name="email" class="form-control form-control-user" id="exampleInputEmail"
+                                        placeholder="Endereço de Email">
+                                </div>
+
+                                <div class="form-group">
+                                    <input type="text" name="endereco" class="form-control form-control-user" id="Endereço"
+                                        placeholder="endereço">
+                                </div>
+
+                                <div class="form-group row">
+                                    <div class="col-sm-6 mb-3 mb-sm-0">
+                                        <input type="tel" name="telefone" class="form-control form-control-user" id="telefone" placeholder="Telefone">
+                                    </div>
+                                    <div class="col-sm-6">
+
+                                        <input type="file" name="foto" id="file" accept="image/*" multiple style="position: absolute; width: 1px; height: 1px; overflow: hidden; opacity: 0;" onchange="displayFileNames()">
+                                        <label for="file" class="btn btn-secondary btn-user btn-block">Adicionar Fotos</label>
+
+                                    </div>
+                                </div>
+
+                               
+                                <div id="file-names"></div>
+                                
+                                <script>
+                                function displayFileNames() {
+                                    const fileInput = document.getElementById("file");
+                                    const fileNamesContainer = document.getElementById("file-names");
+                                    fileNamesContainer.innerHTML = "";
+                                
+                                    if (fileInput.files.length > 0) {
+                                        for (let i = 0; i < fileInput.files.length; i++) {
+                                            const fileName = document.createElement("p");
+                                            fileName.textContent = "Foto " + (i + 1) + ": " + fileInput.files[i].name;
+                                            fileNamesContainer.appendChild(fileName);
+                                        }
+                                    }
+                                }
+                                </script>
+                                
+                                <div class="form-group row">
+                                    <div class="col-sm-6 mb-3 mb-sm-0">
+                                       
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="descricao">Descrição:</label>
+                                    <textarea name="descricao" id="descricao" class="form-control" rows="4" placeholder="Digite uma descrição..."></textarea>
+                                </div>
+                                
+
+                                    {% comment %} <textarea name="textarea" class="form-control" rows="5" cols="56" minlength="10" maxlength="20">
+                                    Descrição/Motivo</textarea
+                                    > {% endcomment %}
+                                <hr>
+                                <button type="submit" class="btn btn-danger btn-user btn-block">Bloquear</button>
+                            </form>
+                            <hr>
+                            
+                            <div class="text-center">
+                                
+                            </div>
+                            <div class="text-center">
+                             </div>
+                            <div class="container-fluid">
+                                <div class="text-center">
+                                    <a href="{% url 'index' %}">&larr; Voltar ao Início</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- JavaScript principal do Bootstrap -->
+    <script src="{% static 'vendor/jquery/jquery.min.js' %}"></script>
+    <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+
+    <!-- JavaScript do plugin principal -->
+    <script src="{% static 'vendor/jquery-easing/jquery.easing.min.js' %}"></script>
+
+    <!-- Scripts personalizados para todas as páginas -->
+    <script src="{% static 'js/sb-admin-2.min.js' %}"></script>
+
+</body>
+
+</html>
+
+{% comment %} {% load static %}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <!-- Seu conteúdo de cabeçalho existente -->
+
+</head>
+
+<body class="bg-gradient-primary">
+
+    <div class="container">
+
+        <div class="card o-hidden border-0 shadow-lg my-5">
+            <div class="card-body p-0">
+                <div class="row">
+                    <div class="col-lg-5 d-none d-lg-block bg-register-image"></div>
+                    <div class="col-lg-7">
+                        <div class="p-5">
+                            <div class="text-center">
+                                <h1 class="h4 text-gray-900 mb-4">Cadastrar!</h1>
+                            </div>
+                            <form method="post" enctype="multipart/form-data" class="user">
+                                {% csrf_token %}
+                                <div class="form-group">
+                                    <input type="text" name="nome" class="form-control form-control-user" id="Nome"
+                                        placeholder="Nome">
+                                </div>
+                                <div class="form-group">
+                                    <input type="email" name="email" class="form-control form-control-user" id="exampleInputEmail"
+                                        placeholder="Endereço de Email">
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" name="endereco" class="form-control form-control-user" id="Endereço"
+                                        placeholder="endereço">
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col-sm-6 mb-3 mb-sm-0">
+                                        <input type="tel" name="telefone" class="form-control form-control-user"
+                                            id="telefone" placeholder="Telefone">
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <select name="pessoa_type" class="btn btn-primary btn-user btn-block" aria-labelledby="dropdownMenuButton">
+                                            <option selected>Escolha o Tipo</option>
+                                            <option value="1">Aluno</option>
+                                            <option value="2">Funcionário</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col-sm-6 mb-3 mb-sm-0">
+                                        <input type="file" name="foto" id="file" accept="image/*" multiple>
+                                    </div>
+                                </div>
+                                <div id="file-names"></div>
+
+                                <hr>
+                                <button type="submit" class="btn btn-primary btn-user btn-block">Cadastrar</button>
+                            </form>
+                            <hr>
+                            <div class="text-center">adastro Realizado com Sucesso!
+                                C
+                                <!-- Suas mensagens de sucesso/erro aqui -->
+                            </div>
+                            <div class="text-center">
+                            </div>
+                            <div class="container-fluid">
+                                <div class="text-center">
+                                    <a href="{% url 'index' %}">&larr; Voltar ao Início</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- JavaScript principal do Bootstrap -->
+    <script src="{% static 'vendor/jquery/jquery.min.js' %}"></script>
+    <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+
+    <!-- JavaScript do plugin principal -->
+    <script src="{% static 'vendor/jquery-easing/jquery.easing.min.js' %}"></script>
+
+    <!-- Scripts personalizados para todas as páginas -->
+    <script src="{% static 'js/sb-admin-2.min.js' %}"></script>
+
+</body>
+
+</html> {% endcomment %}

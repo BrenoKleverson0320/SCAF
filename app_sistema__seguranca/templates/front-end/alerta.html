@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Proteção</title>
+    <style>
+        /* Estilo para o modal */
+        .modal {
+            display: none; /* Inicialmente oculto */
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.5); /* Fundo escuro */
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 50%;
+            text-align: center;
+        }
+
+        /* Estilo para o botão que abrirá o modal */
+        .open-modal-button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+    </style>
+
+    {% load static %}
+    <!DOCTYPE html>
+    <html lang="pt-br">
+    
+    <head>
+    
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="description" content="">
+        <meta name="author" content="">
+    
+        <title>Alerta</title>
+        <link rel="shortcut icon" href="{% static 'img/SCAF_azul.png' %}">
+    
+        <!-- Fontes personalizadas para este modelo -->
+        <link href="{% static 'vendor/fontawesome-free/css/all.min.css' %}" rel="stylesheet" type="text/css">
+        <link
+            href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+            rel="stylesheet">
+    
+        <!-- Estilos personalizados para este modelo -->
+        <link href="{% static 'css/sb-admin-2.css' %}" rel="stylesheet">
+
+
+
+
+
+</head>
+<body>
+    <h1></h1>
+    <!-- Outro conteúdo da sua página -->
+
+    <!-- O modal -->
+    <div id="cameraModal" class="modal">
+        <div class="modal-contentx">
+            <h2>Câmera Offline</h2>
+            <p>Verifique a conexão da câmera.</p>
+            
+
+
+            <div class=" align-items-center mb-1">
+            
+                <a href="{% url 'index' %}" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"> Fechar</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Função para abrir o modal
+        function openModal() {
+            document.getElementById('cameraModal').style.display = 'block';
+        }
+
+        // Função para fechar o modal
+        function closeModal() {
+            document.getElementById('cameraModal').style.display = 'none';
+        }
+
+        // Abrir o modal automaticamente quando a página carregar
+        window.onload = function() {
+            openModal();
+        };
+    </script>
+</body>
+</html>
