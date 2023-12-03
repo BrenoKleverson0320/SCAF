@@ -108,7 +108,7 @@ def webcamBloq(request):
                 text_x = left + (right - left - text_width) // 2
                 text_y = bottom + 30
 
-                if "Estudante" in name:
+                if "Aluno" in name:
                     border_color = (255, 0, 0)
                     
                 elif "Funcionario" in name:
