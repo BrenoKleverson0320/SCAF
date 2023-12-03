@@ -215,10 +215,3 @@ def webcam(request):
         
     stop_webcam() 
          
-
-    #return HttpResponse("Reconhecimento Facial Concluído")
-
-
-
-    #return render(request, 'front-end/index.html')
-#Fim reconhecimento facial
